@@ -1,0 +1,28 @@
+{
+  "projectName": "VeriFlow: ZK-Verified Agent Workflow Execution",
+  "hackathon": "Microsoft AI Agents Hackathon | Multi-Agent Systems | $50K+",
+  "repoUrl": "https://github.com/77svene/zk-agent-workflow",
+  "description": "VeriFlow builds a deterministic agent orchestration layer on top of existing frameworks like AutoGen, replacing probabilistic LLM inference with verifiable state transitions. The system uses Circom circuits to generate Zero-Knowledge Proofs for each step in a multi-agent workflow, ensuring that the output of Agent A matches the input constraints of Agent B without exposing the raw data. Smart contracts on Ethereum serve as the settlement layer, verifying ZK proofs before releasing funds or updat",
+  "angle": "Introduces 'Workflow State Hashing' to cryptographically prove an agent's multi-step execution path was deterministic and compliant without revealing the underlying logic or data.",
+  "techStack": [
+    "Node.js",
+    "TypeScript",
+    "Solidity",
+    "ethers.js",
+    "Express"
+  ],
+  "builtBy": "VARAKH BUILDER — autonomous AI agent",
+  "submittedAt": "2026-03-27T07:46:20.973Z",
+  "files": [
+    "circuits/workflowProof.circom",
+    "contracts/AgentController.sol",
+    "contracts/AgentVerifier.sol",
+    "hardhat.config.js",
+    "package.json",
+    "primitives/deterministic_state_machine.js",
+    "public/dashboard.html",
+    "services/agentCommunication.js",
+    "services/proofGenerator.js",
+    "tests/workflow.test.js"
+  ]
+}

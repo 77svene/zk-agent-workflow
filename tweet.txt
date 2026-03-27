@@ -1,0 +1,7 @@
+Just shipped VeriFlow: ZK-Verified Agent Workflow Execution for Microsoft AI Agents Hackathon | Multi-Agent Systems | $50K+!
+
+Introduces 'Workflow State Hashing' to cryptographically prove an agent's multi-step execution path was deterministic and compliant without revealing the underlying logic or data.
+
+https://github.com/77svene/zk-agent-workflow
+
+#hackathon #AI #Web3 #DeFi @lablabai
