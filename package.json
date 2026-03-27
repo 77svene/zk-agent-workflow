@@ -1,0 +1,74 @@
+{
+  "name": "veriflow-zk-agent-workflow",
+  "version": "1.0.0",
+  "description": "ZK-Verified Agent Workflow Execution - Workflow State Hashing (WSH) primitive for cryptographic execution integrity",
+  "type": "module",
+  "scripts": {
+    "build:contracts": "hardhat compile",
+    "build:circuits": "circom circuits/workflow_state.circom --r1cs --wasm --sym",
+    "test": "hardhat test",
+    "test:circuits": "node scripts/test_circuits.js",
+    "dev:server": "node server/index.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:frontend\"",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "verify": "hardhat verify --network localhost",
+    "wsh:hash": "node primitives/workflow_state_hash.js",
+    "pap:aggregate": "node primitives/proof_aggregation.js",
+    "dev:verify": "node primitives/deterministic_execution_verify.js",
+    "zk:prove": "node primitives/generate_workflow_proof.js",
+    "zk:verify": "node primitives/verify_workflow_proof.js",
+    "zk:deploy": "node primitives/deploy_verification_contract.js"
+  },
+  "dependencies": {
+    "ethers": "^6.13.4",
+    "circomlib": "^2.0.5",
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "circom_runtime": "^2.0.5",
+    "snarkjs": "^0.7.5",
+    "merkletreejs": "^0.3.11",
+    "blake2b": "^2.1.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.15",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.1.0",
+    "circom": "^2.0.14",
+    "circomlibjs": "^0.1.7",
+    "typescript": "^5.7.2",
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "zero-knowledge",
+    "workflow-state-hashing",
+    "proof-aggregation",
+    "deterministic-execution",
+    "agent-verification",
+    "zk-circuits",
+    "multi-agent-systems"
+  ],
+  "main": "primitives/index.js",
+  "exports": {
+    "./primitives/wsh": "./primitives/workflow_state_hash.js",
+    "./primitives/pap": "./primitives/proof_aggregation.js",
+    "./primitives/dev": "./primitives/deterministic_execution_verify.js",
+    "./primitives/zk": "./primitives/generate_workflow_proof.js"
+  },
+  "workspaces": [
+    "primitives",
+    "contracts",
+    "server",
+    "frontend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veriflow/zk-agent-workflow"
+  },
+  "license": "MIT",
+  "private": true
+}
